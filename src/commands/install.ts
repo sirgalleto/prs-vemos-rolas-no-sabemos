@@ -3,13 +3,10 @@ import { existsSync, copyFileSync, chmodSync } from "fs";
 import cli from "cli-ux";
 
 export default class Hello extends Command {
-  static description = "describe the command here";
+  static description =
+    "install the post-commit hook that saves the music metadata";
 
-  static examples = [
-    `$ pvrns install
-Install the post-commit hook that saves the music metadata
-`
-  ];
+  static examples = [`$ pvrns install`];
 
   static flags = {};
   static args = [];
@@ -24,7 +21,9 @@ Install the post-commit hook that saves the music metadata
     const isGitRepository = existsSync(this.gitHooksDirectory);
 
     if (isGitRepository) {
-      const postCommitRoute = `${this.gitHooksDirectory}/${this.postCommitFileName}`;
+      const postCommitRoute = `${this.gitHooksDirectory}/${
+        this.postCommitFileName
+      }`;
 
       copyFileSync(this.postCommitTemplateRoute, postCommitRoute);
       chmodSync(postCommitRoute, "755");
