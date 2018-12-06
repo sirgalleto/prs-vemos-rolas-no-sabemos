@@ -19,7 +19,7 @@ $ npm install -g pvrns
 $ pvrns COMMAND
 running command...
 $ pvrns (-v|--version|version)
-pvrns/0.1.1 darwin-x64 node-v8.10.0
+pvrns/0.1.2 darwin-x64 node-v8.10.0
 $ pvrns --help [COMMAND]
 USAGE
   $ pvrns COMMAND
@@ -60,5 +60,5 @@ EXAMPLE
   $ pvrns install
 ```
 
-_See code: [dist/commands/install.ts](https://github.com/sirgalleto/prs-vemos-rolas-no-sabemos/blob/v0.1.1/dist/commands/install.ts)_
+_See code: [dist/commands/install.ts](https://github.com/sirgalleto/prs-vemos-rolas-no-sabemos/blob/v0.1.2/dist/commands/install.ts)_
 <!-- commandsstop -->

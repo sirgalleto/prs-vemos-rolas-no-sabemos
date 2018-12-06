@@ -1,1 +1,0 @@
-{"version":"0.1.0","commands":{"install":{"id":"install","description":"install the post-commit hook that saves the music metadata","pluginName":"pvrns","pluginType":"core","aliases":[],"examples":["$ pvrns install"],"flags":{},"args":[]}}}
