@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const pvrns = require("pvrns");
+const { Spotify } = require("pvrns/lib");
 const { Repository, Note } = require("nodegit");
 
 async function createNote(track) {
@@ -31,7 +31,7 @@ async function createNote(track) {
 
 async function start() {
   try {
-    const track = await pvrns.Spotify.getCurrentTrackMetadata()
+    const track = await lib.Spotify.getCurrentTrackMetadata()
     createNote(track);
   } catch(error) {
     console.error("There was an error getting the current song:", error)
