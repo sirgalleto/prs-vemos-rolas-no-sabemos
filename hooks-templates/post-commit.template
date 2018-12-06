@@ -1,40 +1,15 @@
 #!/usr/bin/env node
 
-const { Spotify } = require("pvrns/lib");
-const { Repository, Note } = require("nodegit");
-
-async function createNote(track) {
-  try {
-    const repository = await Repository.open("./");
-    const currentBranch = await repository.getCurrentBranch();
-    const commit = await repository.getBranchCommit(currentBranch.name());
-    const author = commit.author();
-    const oid = commit.id();
-    const trackMessage = track
-
-    await Note.create(
-      repository,
-      "refs/notes/commits",
-      author,
-      author,
-      oid,
-      trackMessage,
-      1
-    );
-  } catch (error) {
-    console.error("There was an error adding the music note:", error);
-    process.exit(1);
-  }
-
-  process.exit(0);
-}
+const { Spotify, Git } = require("pvrns/lib/lib");
 
 async function start() {
   try {
     const track = await Spotify.getCurrentTrackMetadata()
-    createNote(track);
+    await Git.createNoteForLastCommit(track);
+    process.exit(0);
   } catch(error) {
     console.error("There was an error getting the current song:", error)
+    process.exit(1);
   }
 }
 
