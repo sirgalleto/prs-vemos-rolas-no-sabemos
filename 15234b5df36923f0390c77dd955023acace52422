@@ -1,5 +1,5 @@
 MUSIC_SOURCE=spotify
-TRACK_NAME=undefined
+SPOTIFY_ID=undefined
+TRACK_NAME=getTrackPromise
 ARTIST_NAME=undefined
 SPOTIFY_URL=undefined
-SPOTIFY_ID=undefined
