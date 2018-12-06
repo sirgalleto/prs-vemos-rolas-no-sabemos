@@ -28,28 +28,8 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`pvrns hello [FILE]`](#pvrns-hello-file)
 * [`pvrns help [COMMAND]`](#pvrns-help-command)
-
-## `pvrns hello [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ pvrns hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ pvrns hello
-  hello world from ./src/hello.ts!
-```
-
-_See code: [src/commands/hello.ts](https://github.com/sirgalleto/prs-vemos-rolas-no-sabemos/blob/v0.0.0/src/commands/hello.ts)_
+* [`pvrns install`](#pvrns-install)
 
 ## `pvrns help [COMMAND]`
 
@@ -67,4 +47,18 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.4/src/commands/help.ts)_
+
+## `pvrns install`
+
+install the post-commit hook that saves the music metadata
+
+```
+USAGE
+  $ pvrns install
+
+EXAMPLE
+  $ pvrns install
+```
+
+_See code: [dist/commands/install.ts](https://github.com/sirgalleto/prs-vemos-rolas-no-sabemos/blob/v0.0.0/dist/commands/install.ts)_
 <!-- commandsstop -->
