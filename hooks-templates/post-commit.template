@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 
-const { Spotify, Git } = require("pvrns/lib/lib");
+const { Spotify, Git } = require("pvrns/dist/lib");
 
 async function start() {
   try {
     const track = await Spotify.getCurrentTrackMetadata()
     await Git.createNoteForLastCommit(track);
+    console.log('Song saved correctly')
     process.exit(0);
   } catch(error) {
     console.error("There was an error getting the current song:", error)
