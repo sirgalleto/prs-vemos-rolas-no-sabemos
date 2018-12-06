@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const spotify = require("spotify-node-applescript");
+const pvrns = require("pvrns");
 const { Repository, Note } = require("nodegit");
 
 async function createNote(track) {
@@ -10,7 +10,7 @@ async function createNote(track) {
     const commit = await repository.getBranchCommit(currentBranch.name());
     const author = commit.author();
     const oid = commit.id();
-    const trackMessage = formatTrackData(track);
+    const trackMessage = track
 
     await Note.create(
       repository,
@@ -29,21 +29,13 @@ async function createNote(track) {
   process.exit(0);
 }
 
-function formatTrackData(track) {
-  return [
-    "MUSIC_SOURCE=spotify",
-    `TRACK_NAME=${track.name}`,
-    `ARTIST_NAME=${track.album_artist}`,
-    `SPOTIFY_URL=${track.spotify_url}`,
-    `SPOTIFY_ID=${track.id}`
-  ].join("\n");
+async function start() {
+  try {
+    const track = await pvrns.Spotify.getCurrentTrackMetadata()
+    createNote(track);
+  } catch(error) {
+    console.error("There was an error getting the current song:", error)
+  }
 }
 
-spotify.getTrack((err, track) => {
-  if (err) {
-    console.error("There was an error getting the current song:", err);
-    process.exit(1);
-  }
-
-  createNote(track);
-});
+start()
