@@ -1,7 +1,7 @@
 {
   "name": "pvrns",
   "description": "Prs that we see, songs we don't know ",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "sir@galleto.xyz",
   "bin": {
     "pvrns": "./bin/run"
@@ -34,6 +34,7 @@
   "files": [
     "/bin",
     "/dist",
+    "/hooks-templates",
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
