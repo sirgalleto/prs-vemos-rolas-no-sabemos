@@ -1,6 +1,5 @@
 import { Command } from "@oclif/command";
 import * as SpotifyWebApi from "spotify-web-api-node";
-import * as opn from "opn";
 import * as express from "express";
 import cli from "cli-ux";
 
