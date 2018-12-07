@@ -30,6 +30,7 @@ USAGE
 <!-- commands -->
 * [`pvrns help [COMMAND]`](#pvrns-help-command)
 * [`pvrns install`](#pvrns-install)
+* [`pvrns login`](#pvrns-login)
 
 ## `pvrns help [COMMAND]`
 
@@ -61,4 +62,18 @@ EXAMPLE
 ```
 
 _See code: [dist/commands/install.ts](https://github.com/sirgalleto/prs-vemos-rolas-no-sabemos/blob/v0.1.2/dist/commands/install.ts)_
+
+## `pvrns login`
+
+adds spotify application credential and starts the token generation flow
+
+```
+USAGE
+  $ pvrns login
+
+EXAMPLE
+  $ pvrns login
+```
+
+_See code: [dist/commands/login.ts](https://github.com/sirgalleto/prs-vemos-rolas-no-sabemos/blob/v0.1.2/dist/commands/login.ts)_
 <!-- commandsstop -->
