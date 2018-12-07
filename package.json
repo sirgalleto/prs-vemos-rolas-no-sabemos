@@ -17,6 +17,7 @@
     "express": "^4.16.4",
     "nodegit": "^0.23.0",
     "spotify-node-applescript": "^1.1.1",
+    "spotify-web-api-node": "^4.0.0",
     "tslib": "^1.9.3"
   },
   "devDependencies": {
