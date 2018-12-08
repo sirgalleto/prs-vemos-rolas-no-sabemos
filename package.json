@@ -15,6 +15,7 @@
     "@types/nodegit": "^0.22.5",
     "cli-ux": "^4.9.3",
     "express": "^4.16.4",
+    "netrc-rw": "^1.0.0",
     "nodegit": "^0.23.0",
     "spotify-node-applescript": "^1.1.1",
     "spotify-web-api-node": "^4.0.0",
