@@ -1,5 +1,8 @@
 import { Command } from "@oclif/command";
+import cli from "cli-ux";
 import Git from "../lib/git";
+import credentials from "../lib/credentials";
+import SpotifyService from "../lib/spotifyService";
 
 export default class CreatePlaylist extends Command {
   static description =
@@ -12,17 +15,29 @@ export default class CreatePlaylist extends Command {
   static flags = {};
   static args = [{ name: "start-commit" }, { name: "end-commit" }];
 
-  gitHooksDirectory: string = "./.git/hooks";
-  postCommitTemplateRoute: string = `${__dirname}/../../hooks-templates/post-commit.template`;
-  postCommitFileName: string = "post-commit";
-
   async run() {
     const { args } = this.parse(CreatePlaylist);
-    const startCommit = args["start-commit"];
-    const endCommit = args["end-commit"];
+    const playlistName: string = await cli.prompt("Playlist name");
+    const startCommit: string = args["start-commit"];
+    const endCommit: string = args["end-commit"];
+    const spotifyCredentials = await credentials.get();
+    const spotifyService = new SpotifyService(spotifyCredentials);
+
+    await spotifyService.authorizeUserFlow()
+
+    cli.action.start("Creating your playlist 🎵");
 
     const songs = await Git.getSongsBetweenTwoCommits(startCommit, endCommit);
 
-    console.log(songs)
+    const songsIds = songs.map((song = "") => {
+      return (song.split("\n").find(value => value.includes("SPOTIFY_ID")) || '').split("=")[1];
+    });
+
+    try {
+      await spotifyService.createPlaylistWithSongs(playlistName, songsIds);
+      cli.action.stop("Your playlist has been created 🎸");
+    } catch (error) {
+      console.error(error)
+    }
   }
 }
