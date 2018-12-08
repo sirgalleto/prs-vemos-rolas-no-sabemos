@@ -13,7 +13,7 @@ namespace Client {
 
     return {
       clientId: credentials.login,
-      password: credentials.password,
+      clientSecret: credentials.password,
     };
   }
 
