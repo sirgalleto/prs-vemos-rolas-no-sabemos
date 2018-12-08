@@ -10,7 +10,11 @@ const endpoint:string = 'pvrns.spotify'
 namespace Client {
   export function get() {
     const credentials = NetRC.host(endpoint) || {};
-    return credentials;
+
+    return {
+      clientId: credentials.login,
+      password: credentials.password,
+    };
   }
 
   export function set(credentials: Credentials) {
@@ -18,8 +22,8 @@ namespace Client {
       ? NetRC.host(endpoint)
       : NetRC.addHost(endpoint);
 
-    config.clientId = credentials.clientId;
-    config.clientSecret = credentials.clientSecret;
+    config.login = credentials.clientId;
+    config.password = credentials.clientSecret;
 
     NetRC.write();
   }
