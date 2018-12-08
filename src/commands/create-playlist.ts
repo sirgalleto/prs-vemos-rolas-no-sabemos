@@ -30,7 +30,7 @@ export default class CreatePlaylist extends Command {
     const songs = await Git.getSongsBetweenTwoCommits(startCommit, endCommit);
 
     const songsIds = songs.map((song = "") => {
-      return (song.split("\n").find(value => value.includes("SPOTIFY_ID")) || '').split("=")[1];
+      return (song.split("\n").find((value:string) => value.includes("SPOTIFY_ID")) || '').split("=")[1];
     });
 
     try {

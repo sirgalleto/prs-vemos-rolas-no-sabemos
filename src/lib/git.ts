@@ -74,10 +74,18 @@ export default class Git {
 
     const notes = await Promise.all(
       commits.map(commit => {
-        return Note.read(repository, notesRef, commit.id());
+        // Bypass any error and send an empty string
+        return new Promise(async (resolve) => {
+          try {
+            const note = await Note.read(repository, notesRef, commit.id());
+            resolve(note)
+          } catch(error) {
+            resolve('')
+          }
+        });
       })
     );
 
-    return notes.map(note => note.message())
+    return notes.filter(note => Boolean(note)).map((note:any) => note && note.message());
   }
 }
