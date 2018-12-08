@@ -16,10 +16,11 @@ Prs that we see, songs we don&#39;t know
 <!-- usage -->
 ```sh-session
 $ npm install -g pvrns
+export NODE_PATH="$(npm config get prefix)/lib/node_modules" // Add this into your profile
 $ pvrns COMMAND
 running command...
 $ pvrns (-v|--version|version)
-pvrns/0.1.2 darwin-x64 node-v8.10.0
+pvrns/0.2.0 darwin-x64 node-v8.10.0
 $ pvrns --help [COMMAND]
 USAGE
   $ pvrns COMMAND
@@ -28,9 +29,24 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`pvrns create-playlist [START-COMMIT] [END-COMMIT]`](#pvrns-create-playlist-start-commit-end-commit)
 * [`pvrns help [COMMAND]`](#pvrns-help-command)
 * [`pvrns install`](#pvrns-install)
-* [`pvrns login`](#pvrns-login)
+* [`pvrns set-credentials`](#pvrns-set-credentials)
+
+## `pvrns create-playlist [START-COMMIT] [END-COMMIT]`
+
+creates a playlist with the music between <start-commit> and <end-commit>
+
+```
+USAGE
+  $ pvrns create-playlist [START-COMMIT] [END-COMMIT]
+
+EXAMPLE
+  $ pvrns create-playlist 16c97ebcf6ce27bf23781e37515b6bd91a66fddf 724e9967c73ba42d0aab2fabd1a7c70590e62d5c
+```
+
+_See code: [dist/commands/create-playlist.ts](https://github.com/sirgalleto/prs-vemos-rolas-no-sabemos/blob/v0.2.0/dist/commands/create-playlist.ts)_
 
 ## `pvrns help [COMMAND]`
 
@@ -61,19 +77,19 @@ EXAMPLE
   $ pvrns install
 ```
 
-_See code: [dist/commands/install.ts](https://github.com/sirgalleto/prs-vemos-rolas-no-sabemos/blob/v0.1.2/dist/commands/install.ts)_
+_See code: [dist/commands/install.ts](https://github.com/sirgalleto/prs-vemos-rolas-no-sabemos/blob/v0.2.0/dist/commands/install.ts)_
 
-## `pvrns login`
+## `pvrns set-credentials`
 
-adds spotify application credential and starts the token generation flow
+adds spotify application credentials
 
 ```
 USAGE
-  $ pvrns login
+  $ pvrns set-credentials
 
 EXAMPLE
   $ pvrns login
 ```
 
-_See code: [dist/commands/login.ts](https://github.com/sirgalleto/prs-vemos-rolas-no-sabemos/blob/v0.1.2/dist/commands/login.ts)_
+_See code: [dist/commands/set-credentials.ts](https://github.com/sirgalleto/prs-vemos-rolas-no-sabemos/blob/v0.2.0/dist/commands/set-credentials.ts)_
 <!-- commandsstop -->
