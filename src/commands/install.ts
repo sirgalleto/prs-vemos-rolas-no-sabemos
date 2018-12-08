@@ -2,7 +2,7 @@ import { Command } from "@oclif/command";
 import { existsSync, copyFileSync, chmodSync } from "fs";
 import cli from "cli-ux";
 
-export default class Hello extends Command {
+export default class Install extends Command {
   static description =
     "install the post-commit hook that saves the music metadata";
 

@@ -2,7 +2,7 @@ import { Command } from "@oclif/command";
 import cli from "cli-ux";
 import Client from '../lib/credentials'
 
-export default class Hello extends Command {
+export default class SetCredentials extends Command {
   static description =
     "adds spotify application credentials";
 
