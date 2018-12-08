@@ -36,8 +36,10 @@ export default class CreatePlaylist extends Command {
     try {
       await spotifyService.createPlaylistWithSongs(playlistName, songsIds);
       cli.action.stop("Your playlist has been created 🎸");
+      process.exit(0)
     } catch (error) {
       console.error(error)
+      process.exit(1)
     }
   }
 }
